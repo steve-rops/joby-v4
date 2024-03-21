@@ -8,7 +8,7 @@ const MobileLayout = () => {
 
   return (
     <>
-      <div className="h-lvh relative w-full transition-all ">
+      <div className="h-svh relative w-full transition-all ">
         <div className=" h-[10%] w-full bg-secondary absolute z-10 text-xl">
           test
         </div>
