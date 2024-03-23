@@ -7,7 +7,11 @@ const MyDrawer = () => {
   return (
     <Drawer.Root
       open={isOpen}
-      onClose={() => dispatch({ type: "closeDrawer" })}
+      onClose={() => {
+        setTimeout(() => {
+          dispatch({ type: "closeDrawer" });
+        }, 200);
+      }}
     >
       <Drawer.Portal>
         <Drawer.Trigger></Drawer.Trigger>

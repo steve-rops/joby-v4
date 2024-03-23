@@ -12,6 +12,8 @@ function reducer(state, action) {
       return { ...state, isOpen: false };
     case "toggleDrawer":
       return { ...state, isOpen: !state.isOpen };
+    case "showButton":
+      return { ...state, toggleButtonIsShown: true };
     default:
       return { ...state };
   }
