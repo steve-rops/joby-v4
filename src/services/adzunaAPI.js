@@ -13,3 +13,12 @@ export const getDefaultJobs = async () => {
 
   return results;
 };
+
+export const getJobsCategories = async () => {
+  const res = await fetch(
+    `http://api.adzuna.com/v1/api/jobs/gb/categories?app_id=${id}&app_key=${key}&&content-type=application/json`
+  );
+
+  const { results } = await res.json();
+  return results.slice(0, 10);
+};
