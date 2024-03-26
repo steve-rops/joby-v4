@@ -10,9 +10,9 @@ const JobsSkeleton = () => {
     <>
       {numberOfJobsPerPage.map((el) => (
         <div key={el}>
-          <Skeleton className="p-2 mb-2">
-            <Skeleton className="h-4 w-24 my-1 " />
-            <Skeleton className="h-3 w-6" />
+          <Skeleton className="bg-gray-300 p-2 mb-2">
+            <Skeleton className="bg-primary/45 h-4 w-24 my-1 " />
+            <Skeleton className="bg-primary/40 h-3 w-16" />
           </Skeleton>
         </div>
       ))}

@@ -22,6 +22,7 @@ const MyDrawer = () => {
           dispatch({ type: "closeDrawer" });
         }, 200);
       }}
+      scrollLockTimeout={100}
     >
       <Drawer.Portal>
         <Drawer.Trigger></Drawer.Trigger>

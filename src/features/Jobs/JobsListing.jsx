@@ -3,12 +3,11 @@ import { getDefaultJobs } from "../../services/adzunaAPI";
 import SingleJob from "./SingleJob";
 
 const JobsListing = () => {
-  const { data: jobs, isLoading } = useQuery({
+  const { data: jobs } = useQuery({
     queryKey: ["jobs"],
     queryFn: getDefaultJobs,
   });
 
-  console.log(isLoading, jobs);
   return (
     <>
       {jobs?.map((job) => (
