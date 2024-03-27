@@ -17,7 +17,7 @@ const Header = () => {
       <div className="flex items-center justify-center px-1 py-3 gap-2">
         <form onSubmit={handleSubmit(submitting)}>
           <input
-            className="rounded-lg shadow-md outline-none p-2 text-md"
+            className="rounded-lg shadow-md outline-none p-2 text-lg"
             type="text"
             defaultValue={value}
             placeholder="search your dream job"
@@ -25,7 +25,7 @@ const Header = () => {
             {...register("query")}
           />
         </form>
-        <span className="text-xl h-fit p-1 rounded-full border border-foreground ">
+        <span className="text-3xl h-fit p-1 rounded-full border border-foreground ">
           <IoOptionsOutline />
         </span>
       </div>
