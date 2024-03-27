@@ -13,11 +13,11 @@ const Header = () => {
   };
 
   return (
-    <div className="w-full bg-secondary z-10 ">
-      <div className="flex items-center justify-center p-1 gap-2">
+    <div className="w-full bg-secondary z-10 shadow-lg ">
+      <div className="flex items-center justify-center px-1 py-3 gap-2">
         <form onSubmit={handleSubmit(submitting)}>
           <input
-            className="rounded-lg shadow-md outline-none p-2 text-sm"
+            className="rounded-lg shadow-md outline-none p-2 text-md"
             type="text"
             defaultValue={value}
             placeholder="search your dream job"
@@ -25,7 +25,7 @@ const Header = () => {
             {...register("query")}
           />
         </form>
-        <span className="text-l h-fit  rounded-full border border-foreground ">
+        <span className="text-xl h-fit p-1 rounded-full border border-foreground ">
           <IoOptionsOutline />
         </span>
       </div>
