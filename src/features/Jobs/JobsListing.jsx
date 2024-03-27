@@ -7,8 +7,6 @@ import { useSelector } from "react-redux";
 const JobsListing = () => {
   const { query } = useSelector((store) => store.query);
 
-  console.log(query);
-
   const { data: jobs, isLoading } = useQuery({
     queryKey: ["jobs", query],
     queryFn: () => getDefaultJobs(query),
