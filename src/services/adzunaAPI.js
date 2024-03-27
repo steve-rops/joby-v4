@@ -4,21 +4,14 @@ export const resultsPerPage = 15;
 // const url =
 //   "https://api.adzuna.com/v1/api/jobs/us/search/1?app_id={YOUR_APP_ID}&app_key={YOUR_APP_KEY}&results_per_page=20";
 
-export const getDefaultJobs = async () => {
+export const getDefaultJobs = async (query = "test") => {
+  console.log(query);
   const res = await fetch(
-    `https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=${id}&app_key=${key}&results_per_page=${resultsPerPage}`
+    `https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=${id}&app_key=${key}&results_per_page=${resultsPerPage}&what=${query}`
   );
+  if (!res.ok) throw new Error(res);
 
   const { results } = await res.json();
 
   return results;
-};
-
-export const getJobsCategories = async () => {
-  const res = await fetch(
-    `http://api.adzuna.com/v1/api/jobs/gb/categories?app_id=${id}&app_key=${key}&&content-type=application/json`
-  );
-
-  const { results } = await res.json();
-  return results.slice(0, 10);
 };

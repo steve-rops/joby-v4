@@ -1,5 +1,5 @@
 import Categories from "./Categories";
-import Form from "./Form";
+import Form from "./Query/Form";
 import SettingsIcon from "./SettingsIcon";
 
 const Header = () => {
