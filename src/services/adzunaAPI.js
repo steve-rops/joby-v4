@@ -12,5 +12,7 @@ export const getDefaultJobs = async (query = "") => {
 
   const { results } = await res.json();
 
-  return results;
+  const jobsWithCoords = results.filter((job) => job.latitude);
+
+  return jobsWithCoords;
 };

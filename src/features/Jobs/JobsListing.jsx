@@ -14,11 +14,18 @@ const JobsListing = () => {
   });
 
   return (
-    <div className=" p-3 pb-12 space-y-2 h-fit">
+    <div className=" p-3 h-fit">
       {isLoading ? (
         <JobsSkeleton />
       ) : (
-        jobs.map((job) => <SingleJob job={job} key={job.id} />)
+        <div className="h-fit pb-12 space-y-2">
+          <div className="text-center font-mono py-1 bg-primary/10 rounded-lg">
+            {jobs.length} jobs were found
+          </div>
+          {jobs.map((job) => (
+            <SingleJob job={job} key={job.id} />
+          ))}
+        </div>
       )}
     </div>
   );
