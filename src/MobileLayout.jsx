@@ -1,12 +1,12 @@
-import MyDrawer from "./features/Drawer/MyDrawer";
-import Map from "./features/map/Map";
-import { Button } from "./components/ui/button";
-import { useDrawerState } from "./features/Drawer/DrawerContext";
+// import MyDrawer from "./features/Drawer/MyDrawer";
+// import Map from "./features/map/Map";
+// import { Button } from "./components/ui/button";
+// import { useDrawerState } from "./features/Drawer/DrawerContext";
 import Header from "./features/header/Header";
 import JobsListing from "./features/Jobs/JobsListing";
 
 const MobileLayout = () => {
-  const { isOpen: drawerIsOpen, dispatch } = useDrawerState();
+  // const { isOpen: drawerIsOpen, dispatch } = useDrawerState();
 
   return (
     <>

@@ -14,7 +14,7 @@ const JobsListing = () => {
   });
 
   return (
-    <div className=" p-2 space-y-2">
+    <div className=" p-3 pb-12 space-y-2 h-fit">
       {isLoading ? (
         <JobsSkeleton />
       ) : (

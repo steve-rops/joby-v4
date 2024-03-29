@@ -10,6 +10,7 @@ import { RiAdvertisementFill } from "react-icons/ri";
 import { LuWarehouse } from "react-icons/lu";
 import { useState } from "react";
 import Category from "./Category";
+import { useSelector } from "react-redux";
 
 const categories = [
   { id: 0, label: "Accounting", logo: <ImBooks /> },
@@ -25,15 +26,17 @@ const categories = [
 ];
 
 const Categories = () => {
-  const [activeID, setActiveID] = useState(null);
+  const { activeCategoryID } = useSelector((store) => store.category);
+  const { query } = useSelector((store) => store.query);
+
   return (
     <div className="p-2  text-sm font-semibold ">
       <h2 className="text-md">Top Categories:</h2>
       <div className="overflow-x-scroll flex gap-7 p-2">
         {categories?.map((cat) => (
           <Category
-            activeID={activeID}
-            setActiveID={setActiveID}
+            activeID={activeCategoryID}
+            query={query}
             key={cat.id}
             cat={cat}
           />

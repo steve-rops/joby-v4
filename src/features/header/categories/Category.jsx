@@ -1,8 +1,17 @@
-const Category = ({ cat, activeID, setActiveID }) => {
-  const isActive = activeID === cat.id;
+import { useDispatch } from "react-redux";
+import { updateQuery } from "../Query/QuerySlice";
+import { updateActiveID } from "./categorySlice";
+
+const Category = ({ cat, activeID, query }) => {
+  const dispatch = useDispatch();
+  const isActive = activeID === cat.id || query === cat.label.toLowerCase();
+
   return (
     <div
-      onClick={() => setActiveID(cat.id)}
+      onClick={() => {
+        dispatch(updateQuery(cat.label.toLowerCase()));
+        dispatch(updateActiveID(cat.id));
+      }}
       className={`flex flex-col items-center transition-all ${
         isActive ? "border-b border-primary" : ""
       }  `}
