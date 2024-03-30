@@ -28,7 +28,7 @@ const MobileLayout = () => {
         
 
         <MyDrawer /> */}
-        <div className="h-screen w-full absolute top-0">
+        <div className="h-dvh w-full absolute top-0">
           <Button
             size="sm"
             className="fixed top-[90%] left-[50%] translate-x-[-50%] z-10"
