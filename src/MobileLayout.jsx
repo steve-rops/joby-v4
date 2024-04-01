@@ -33,7 +33,7 @@ const MobileLayout = () => {
         {/* <div className="h-dvh w-full absolute top-0"> */}
         <Button
           size="sm"
-          className="fixed top-[90%] left-[50%] translate-x-[-50%] z-10 rounded-full space-x-1  "
+          className="fixed bottom-2 left-[50%] translate-x-[-50%] z-10 rounded-full space-x-1  "
         >
           <p>map</p>
           <CiMap className="text-lg" />
