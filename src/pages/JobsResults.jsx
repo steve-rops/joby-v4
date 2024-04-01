@@ -3,7 +3,7 @@ import MapToggleButton from "../features/map/MapToggleButton";
 
 const JobsResults = () => {
   return (
-    <>
+    <div className="h-[75%]">
       <JobsListing />
 
       {/* {!drawerIsOpen && (
@@ -22,7 +22,7 @@ const JobsResults = () => {
       {/* <div className="h-dvh w-full absolute top-0"> */}
       <MapToggleButton />
       {/* </div> */}
-    </>
+    </div>
   );
 };
 

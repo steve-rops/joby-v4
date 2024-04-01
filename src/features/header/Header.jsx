@@ -18,10 +18,7 @@ const Header = () => {
   }, [dispatch]);
 
   return (
-    <div
-      ref={topBarHeight}
-      className="w-full bg-secondary z-10 sticky top-0 shadow-lg "
-    >
+    <div className="w-full h-[25%] bg-secondary z-10 sticky top-0 shadow-lg ">
       <div className="flex items-center justify-center px-1 pt-4 gap-2">
         <Form />
         <SettingsIcon />

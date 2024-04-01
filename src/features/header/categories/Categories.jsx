@@ -8,7 +8,6 @@ import { MdHealthAndSafety } from "react-icons/md";
 import { MdFoodBank } from "react-icons/md";
 import { RiAdvertisementFill } from "react-icons/ri";
 import { LuWarehouse } from "react-icons/lu";
-import { useState } from "react";
 import Category from "./Category";
 import { useSelector } from "react-redux";
 
@@ -30,7 +29,7 @@ const Categories = () => {
   const { query } = useSelector((store) => store.query);
 
   return (
-    <div className="p-2  text-sm font-semibold ">
+    <div className="p-2 text-sm font-semibold ">
       <h2 className="text-md">Top Categories:</h2>
       <div className="overflow-x-scroll flex gap-7 p-2">
         {categories?.map((cat) => (

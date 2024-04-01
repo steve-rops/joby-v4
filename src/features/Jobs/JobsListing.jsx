@@ -14,11 +14,11 @@ const JobsListing = () => {
   });
 
   return (
-    <div className=" p-3 h-fit">
+    <div className="p-3 h-full overflow-y-scroll">
       {isLoading ? (
         <JobsSkeleton />
       ) : (
-        <div className="h-fit pb-12 space-y-2">
+        <div className=" pb-12 space-y-2">
           <div className="text-center font-mono py-1 bg-primary/10 rounded-lg">
             {jobs.length} jobs were found
           </div>
