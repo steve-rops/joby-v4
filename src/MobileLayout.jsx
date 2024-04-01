@@ -2,6 +2,8 @@
 // import Map from "./features/map/Map";
 import { Button } from "./components/ui/button";
 // import { useDrawerState } from "./features/Drawer/DrawerContext";
+import { CiMap } from "react-icons/ci";
+
 import Header from "./features/header/Header";
 import JobsListing from "./features/Jobs/JobsListing";
 
@@ -28,14 +30,15 @@ const MobileLayout = () => {
         
 
         <MyDrawer /> */}
-        <div className="h-dvh w-full absolute top-0">
-          <Button
-            size="sm"
-            className="fixed top-[90%] left-[50%] translate-x-[-50%] z-10"
-          >
-            show map
-          </Button>
-        </div>
+        {/* <div className="h-dvh w-full absolute top-0"> */}
+        <Button
+          size="sm"
+          className="fixed top-[90%] left-[50%] translate-x-[-50%] z-10 rounded-full space-x-1  "
+        >
+          <p>map</p>
+          <CiMap className="text-lg" />
+        </Button>
+        {/* </div> */}
       </div>
     </>
   );
