@@ -5,6 +5,9 @@ import MobileLayout from "./MobileLayout";
 import Home from "./Home";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+import Map from "./features/map/Map";
+import JobsResults from "./pages/JobsResults";
+
 function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -19,14 +22,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
-          <Route
-            path="app"
-            element={
-              <DrawerContext>
-                <MobileLayout />
-              </DrawerContext>
-            }
-          />
+          <Route path="app" element={<MobileLayout />}>
+            <Route path="" element={<JobsResults />} />
+            <Route path="map" element={<Map />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

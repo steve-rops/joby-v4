@@ -1,45 +1,12 @@
-// import MyDrawer from "./features/Drawer/MyDrawer";
-// import Map from "./features/map/Map";
-import { Button } from "./components/ui/button";
-// import { useDrawerState } from "./features/Drawer/DrawerContext";
-import { CiMap } from "react-icons/ci";
-
+import { Outlet } from "react-router-dom";
 import Header from "./features/header/Header";
-import JobsListing from "./features/Jobs/JobsListing";
 
 const MobileLayout = () => {
-  // const { isOpen: drawerIsOpen, dispatch } = useDrawerState();
-
   return (
     <>
-      <div className="h-full relative w-full">
-        <Header />
+      <Header />
 
-        <JobsListing />
-
-        {/* {!drawerIsOpen && (
-          <Button
-            onClick={() => dispatch({ type: "toggleDrawer" })}
-            className="absolute z-10 bottom-4 left-[50%] translate-x-[-50%]"
-          >
-            click
-          </Button>
-        )}
-
-        <Map />
-        
-
-        <MyDrawer /> */}
-        {/* <div className="h-dvh w-full absolute top-0"> */}
-        <Button
-          size="sm"
-          className="fixed bottom-2 left-[50%] translate-x-[-50%] z-10 rounded-full space-x-1  "
-        >
-          <p>map</p>
-          <CiMap className="text-lg" />
-        </Button>
-        {/* </div> */}
-      </div>
+      <Outlet />
     </>
   );
 };
