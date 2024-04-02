@@ -6,7 +6,7 @@ const Map = () => {
       center={[51.505, -0.09]}
       zoom={13}
       scrollWheelZoom={false}
-      className={`h-[75%] absolute bottom-0 w-full`}
+      className={`h-[75%] z-10 fixed bottom-0 w-full`}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

@@ -1,11 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { DrawerContext } from "./features/Drawer/DrawerContext";
-
-import MobileLayout from "./MobileLayout";
-import Home from "./Home";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import Map from "./features/map/Map";
+import MobileLayout from "./MobileLayout";
+import MapLayout from "./features/map/MapLayout";
+import Home from "./Home";
 import JobsResults from "./pages/JobsResults";
 
 function App() {
@@ -24,7 +22,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="app" element={<MobileLayout />}>
             <Route path="" element={<JobsResults />} />
-            <Route path="map" element={<Map />} />
+            <Route path="map" element={<MapLayout />} />
           </Route>
         </Routes>
       </BrowserRouter>

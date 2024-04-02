@@ -1,41 +1,42 @@
 import { Drawer } from "vaul";
-import { useDrawerState } from "./DrawerContext";
-import JobsListing from "../Jobs/JobsListing";
 import { useQuery } from "@tanstack/react-query";
+import Loader from "../../components/ui/Loader";
+import { useState } from "react";
 import { getDefaultJobs } from "../../services/adzunaAPI";
-import JobsSkeleton from "../Jobs/JobsSkeleton";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 const MyDrawer = () => {
-  const { isOpen, dispatch } = useDrawerState();
+  const [snap, setSnap] = useState(0.33);
+  const { query } = useSelector((store) => store.query);
 
-  const { isLoading } = useQuery({
-    queryKey: ["jobs"],
-    queryFn: getDefaultJobs,
+  const { data, isLoading } = useQuery({
+    queryKey: ["jobs", query],
+    queryFn: () => getDefaultJobs(query),
   });
-  console.log(isLoading);
+
+  console.log(snap);
+
+  if (snap === 1) return <Navigate to={"/app"} />;
 
   return (
     <Drawer.Root
-      open={isOpen}
-      onClose={() => {
-        setTimeout(() => {
-          dispatch({ type: "closeDrawer" });
-        }, 200);
-      }}
-      scrollLockTimeout={100}
+      open
+      modal={false}
+      snapPoints={[0.33, 1]}
+      activeSnapPoint={snap}
+      setActiveSnapPoint={setSnap}
     >
-      <Drawer.Portal>
-        <Drawer.Trigger></Drawer.Trigger>
-        <Drawer.Overlay className="" />
-        <Drawer.Content className="bg-white flex flex-col fixed bottom-0 left-0 right-0 max-h-[94%] rounded-t-[10px]">
-          <div className="h-4 w-8 bg-foreground my-2 m-auto rounded-md" />
-          <div className="flex flex-col gap-2  align-middle overflow-auto p-2 rounded-t-[10px]">
-            {isLoading ? <JobsSkeleton /> : <JobsListing />}
-          </div>
-        </Drawer.Content>
-      </Drawer.Portal>
+      <Drawer.Overlay className="" />
+      <Drawer.Content
+        className={`bg-white flex flex-col fixed bottom-0 left-0 z-30 right-0 h-[75%] rounded-t-[10px] outline-none`}
+      >
+        <div className="h-2 w-12 bg-primary/75 rounded-md mx-auto mt-2" />
+        <div className="max-w-md w-full mx-auto flex flex-col text-center text-xl">
+          {isLoading ? <Loader /> : `${data.length} jobs were found`}
+        </div>
+      </Drawer.Content>
     </Drawer.Root>
   );
 };
-
 export default MyDrawer;
