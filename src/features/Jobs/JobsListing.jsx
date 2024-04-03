@@ -1,17 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
-import { getDefaultJobs } from "../../services/adzunaAPI";
 import SingleJob from "./SingleJob";
 import JobsSkeleton from "./JobsSkeleton";
-import { useSelector } from "react-redux";
+import useJobs from "../../hooks/useJobs";
 
 const JobsListing = () => {
-  const { query } = useSelector((store) => store.query);
-
-  const { data: jobs, isLoading } = useQuery({
-    queryKey: ["jobs", query],
-    queryFn: () => getDefaultJobs(query),
-    staleTime: 1000,
-  });
+  const { data: jobs, isLoading } = useJobs();
 
   return (
     <div className="p-3 h-full overflow-y-scroll">
@@ -20,9 +12,9 @@ const JobsListing = () => {
       ) : (
         <div className=" pb-12 space-y-2">
           <div className="text-center font-mono py-1 bg-primary/10 rounded-lg">
-            {jobs.length} jobs were found
+            {jobs?.length} jobs were found
           </div>
-          {jobs.map((job) => (
+          {jobs?.map((job) => (
             <SingleJob job={job} key={job.id} />
           ))}
         </div>

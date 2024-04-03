@@ -1,21 +1,12 @@
 import { Drawer } from "vaul";
-import { useQuery } from "@tanstack/react-query";
 import Loader from "../../components/ui/Loader";
 import { useState } from "react";
-import { getDefaultJobs } from "../../services/adzunaAPI";
-import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
+import useJobs from "../../hooks/useJobs";
 
 const MyDrawer = () => {
   const [snap, setSnap] = useState(0.33);
-  const { query } = useSelector((store) => store.query);
-
-  const { data, isLoading } = useQuery({
-    queryKey: ["jobs", query],
-    queryFn: () => getDefaultJobs(query),
-  });
-
-  console.log(snap);
+  const { data, isLoading } = useJobs();
 
   if (snap === 1) return <Navigate to={"/app"} />;
 
