@@ -5,10 +5,11 @@ import MapToggleButton from "../map/MapToggleButton";
 
 const JobsListing = () => {
   const { data: jobs, isLoading } = useJobs();
+  console.log(jobs);
 
   return (
     <>
-      <div className="p-3 h-[75%] overflow-y-scroll">
+      <div className="p-4 h-[75%] overflow-y-scroll">
         {isLoading ? (
           <JobsSkeleton />
         ) : (

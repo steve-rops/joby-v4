@@ -25,7 +25,7 @@ const MyDrawer = () => {
         <div className="h-2 w-12 bg-primary/75 rounded-md mx-auto mt-2" />
 
         <div
-          className={`w-[65%] flex justify-center text-md font-mono rounded-md ${
+          className={`w-[65%] flex justify-center text-sm font-mono rounded-md ${
             isLoading ? "" : "bg-primary/15"
           }`}
         >
