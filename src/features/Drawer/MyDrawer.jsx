@@ -20,10 +20,15 @@ const MyDrawer = () => {
     >
       <Drawer.Overlay className="" />
       <Drawer.Content
-        className={`bg-white flex flex-col fixed bottom-0 left-0 z-30 right-0 h-[75%] rounded-t-[10px] outline-none`}
+        className={`bg-white flex flex-col items-center fixed bottom-0 left-0 z-30 right-0 h-[75%] rounded-t-[10px] space-y-2 outline-none`}
       >
         <div className="h-2 w-12 bg-primary/75 rounded-md mx-auto mt-2" />
-        <div className="max-w-md w-full mx-auto flex flex-col text-center text-xl">
+
+        <div
+          className={`w-[65%] flex justify-center text-md font-mono rounded-md ${
+            isLoading ? "" : "bg-primary/15"
+          }`}
+        >
           {isLoading ? <Loader /> : `${data.length} jobs were found`}
         </div>
       </Drawer.Content>
