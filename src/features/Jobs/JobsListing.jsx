@@ -9,7 +9,11 @@ const JobsListing = ({ headerHeight }) => {
 
   return (
     <>
-      <div className={`p-4 h-[calc(100%-${headerHeight}px)] overflow-y-scroll`}>
+      <div
+        className={`p-4 h-[calc(100%-${
+          headerHeight - 10
+        }px)] overflow-y-scroll`}
+      >
         {isLoading ? (
           <JobsSkeleton />
         ) : (

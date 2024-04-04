@@ -8,7 +8,7 @@ const Map = ({ headerHeight }) => {
   const { data: jobs } = useJobs();
 
   if (!headerHeight) return <Loader />;
-  console.log(headerHeight);
+
   return (
     <MapContainer
       center={[51.505, -0.09]}
