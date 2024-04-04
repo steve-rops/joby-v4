@@ -9,7 +9,7 @@ const MapInit = () => {
 
   const bounds = jobs?.map((job) => [job.latitude, job.longitude]);
 
-  map.fitBounds(bounds, { padding: [60, 60], animate: true });
+  map.fitBounds(bounds, { padding: [80, 80], animate: true });
 
   return null;
 };

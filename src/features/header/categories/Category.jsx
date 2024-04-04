@@ -18,12 +18,12 @@ const Category = ({ cat, activeID, query }) => {
       key={cat.label}
     >
       <span
-        className={`text-3xl ${isActive ? "text-primary" : "text-primary/60"}`}
+        className={`text-4xl ${isActive ? "text-primary" : "text-primary/60"}`}
       >
         {cat.logo}
       </span>
       <h4
-        className={`text-balance text-xs  text-center ${
+        className={`text-balance text-md  text-center ${
           isActive ? "text-slate-900" : "text-slate-600"
         }`}
       >

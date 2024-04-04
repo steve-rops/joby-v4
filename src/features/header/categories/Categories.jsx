@@ -29,9 +29,9 @@ const Categories = () => {
   const { query } = useSelector((store) => store.query);
 
   return (
-    <div className="py-2 px-4 text-sm font-semibold ">
+    <div className="py-2 px-4 text-sm font-semibold h-fit">
       <h2 className="text-lg">Top Categories:</h2>
-      <div className="overflow-x-scroll flex gap-7 py-2">
+      <div className="overflow-x-scroll flex gap-7 py-4">
         {categories?.map((cat) => (
           <Category
             activeID={activeCategoryID}

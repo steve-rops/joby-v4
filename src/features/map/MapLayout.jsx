@@ -1,10 +1,10 @@
 import Map from "./Map";
 import MyDrawer from "../Drawer/MyDrawer";
 
-const MapLayout = () => {
+const MapLayout = ({ headerHeight }) => {
   return (
     <>
-      <Map />
+      <Map headerHeight={headerHeight} />
 
       <MyDrawer />
     </>

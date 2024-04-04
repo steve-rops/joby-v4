@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom";
 import Header from "./features/header/Header";
+import { useState } from "react";
 
-const MobileLayout = () => {
+const MobileLayout = ({ setHeaderHeight, headerHeight }) => {
   return (
     <div className="h-svh">
-      <Header />
+      <Header setHeaderHeight={setHeaderHeight} headerHeight={headerHeight} />
 
       <Outlet />
     </div>
