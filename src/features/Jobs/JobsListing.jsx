@@ -3,17 +3,12 @@ import JobsSkeleton from "./JobsSkeleton";
 import useJobs from "../../hooks/useJobs";
 import MapToggleButton from "../map/MapToggleButton";
 
-const JobsListing = ({ headerHeight }) => {
-  const { data: jobs, isLoading: isFetching } = useJobs();
-  const isLoading = isFetching && headerHeight;
+const JobsListing = () => {
+  const { data: jobs, isLoading } = useJobs();
 
   return (
     <>
-      <div
-        className={`p-4 h-[calc(100%-${
-          headerHeight - 10
-        }px)] overflow-y-scroll`}
-      >
+      <div className={`p-4 h-[75%] overflow-y-scroll`}>
         {isLoading ? (
           <JobsSkeleton />
         ) : (

@@ -30,7 +30,7 @@ const Categories = () => {
 
   return (
     <div className="py-2 px-4 text-sm font-semibold h-fit">
-      <h2 className="text-lg">Top Categories:</h2>
+      <h2 className="text-md">Top Categories:</h2>
       <div className="overflow-x-scroll flex gap-7 py-4">
         {categories?.map((cat) => (
           <Category

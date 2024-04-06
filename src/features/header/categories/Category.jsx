@@ -18,7 +18,7 @@ const Category = ({ cat, activeID, query }) => {
       key={cat.label}
     >
       <span
-        className={`text-4xl ${isActive ? "text-primary" : "text-primary/60"}`}
+        className={`text-3xl ${isActive ? "text-primary" : "text-primary/60"}`}
       >
         {cat.logo}
       </span>

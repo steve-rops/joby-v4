@@ -20,9 +20,9 @@ const Form = () => {
   }, 800);
 
   return (
-    <form onSubmit={(e) => e.preventDefault()}>
+    <form className="w-[85%]" onSubmit={(e) => e.preventDefault()}>
       <input
-        className="rounded-lg shadow-lg outline-none p-2 text-lg"
+        className="rounded-lg shadow-lg outline-none p-2 text-lg w-full"
         type="text"
         value={value}
         placeholder="search your dream job"

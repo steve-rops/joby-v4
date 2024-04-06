@@ -4,8 +4,8 @@ import { useState } from "react";
 
 const MobileLayout = ({ setHeaderHeight, headerHeight }) => {
   return (
-    <div className="h-svh">
-      <Header setHeaderHeight={setHeaderHeight} headerHeight={headerHeight} />
+    <div className="h-svh overflow-hidden">
+      <Header />
 
       <Outlet />
     </div>

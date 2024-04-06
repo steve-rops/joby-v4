@@ -4,17 +4,15 @@ import Markers from "./Markers";
 import useJobs from "../../hooks/useJobs";
 import Loader from "../../components/ui/Loader";
 
-const Map = ({ headerHeight }) => {
+const Map = () => {
   const { data: jobs } = useJobs();
-
-  if (!headerHeight) return <Loader />;
 
   return (
     <MapContainer
       center={[51.505, -0.09]}
       zoom={2}
       scrollWheelZoom={true}
-      className={`h-[calc(100%-${headerHeight}px)] z-10 w-full`}
+      className={`h-[75%] z-10 w-full`}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
