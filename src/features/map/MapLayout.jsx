@@ -4,7 +4,9 @@ import MyDrawer from "../Drawer/MyDrawer";
 const MapLayout = () => {
   return (
     <>
-      <Map />
+      <div className="h-[calc(100svh-230px)] z-10 w-full">
+        <Map />
+      </div>
       <MyDrawer />
     </>
   );

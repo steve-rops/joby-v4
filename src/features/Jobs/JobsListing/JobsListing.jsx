@@ -1,14 +1,10 @@
+import JobsSkeleton from "../JobsSkeleton";
+import useJobs from "../../../hooks/useJobs";
+import MapToggleButton from "../../map/MapToggleButton";
 import SingleJob from "./SingleJob";
-import JobsSkeleton from "./JobsSkeleton";
-import useJobs from "../../hooks/useJobs";
-import MapToggleButton from "../map/MapToggleButton";
-import { useSelector } from "react-redux";
 
 const JobsListing = () => {
   const { data: jobs, isLoading } = useJobs();
-  const { headerHeight } = useSelector((store) => store.ui);
-
-  console.log(headerHeight);
 
   return (
     <>

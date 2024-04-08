@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useDebouncedCallback } from "use-debounce";
 import { updateQuery } from "./QuerySlice";
@@ -7,6 +7,7 @@ import { updateActiveID } from "../categories/categorySlice";
 const Form = () => {
   const { query } = useSelector((store) => store.query);
   const [value, setValue] = useState("");
+  const element = useRef();
 
   useEffect(() => {
     if (query) setValue(query);
@@ -17,21 +18,24 @@ const Form = () => {
   const debounced = useDebouncedCallback((debvalue) => {
     dispatch(updateQuery(debvalue));
     dispatch(updateActiveID(null));
+    element.current.focus();
   }, 800);
 
   return (
-    <form className="w-[85%]" onSubmit={(e) => e.preventDefault()}>
-      <input
-        className="rounded-lg shadow-lg outline-none p-2 text-lg w-full"
-        type="text"
-        value={value}
-        placeholder="search your dream job"
-        onChange={(e) => {
-          setValue(e.target.value);
-          debounced(e.target.value);
-        }}
-      />
-    </form>
+    <section ref={element} className="w-[85%]">
+      <form className="w-full" onSubmit={(e) => e.preventDefault()}>
+        <input
+          className="rounded-lg shadow-lg  p-3 text-lg w-full"
+          type="text"
+          value={value}
+          placeholder="search your dream job"
+          onChange={(e) => {
+            setValue(e.target.value);
+            debounced(e.target.value);
+          }}
+        />
+      </form>
+    </section>
   );
 };
 

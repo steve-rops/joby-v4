@@ -4,7 +4,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import MobileLayout from "./MobileLayout";
 import MapLayout from "./features/map/MapLayout";
 import Home from "./Home";
-import JobsListing from "./features/Jobs/JobsListing";
+import JobsListing from "./features/Jobs/JobsListing/JobsListing";
+import SingleJobLayout from "./features/Jobs/SingleJob/SingleJobLayout";
 
 function App() {
   const queryClient = new QueryClient({
@@ -24,6 +25,7 @@ function App() {
             <Route path="" element={<JobsListing />} />
             <Route path="map" element={<MapLayout />} />
           </Route>
+          <Route path="app/:id" element={<SingleJobLayout />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
