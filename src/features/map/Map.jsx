@@ -23,11 +23,11 @@ const Map = ({ id, jobs }) => {
 
       {!selectedJob && <MapInit />}
 
+      <Markers />
+
       {selectedJob && (
         <SetView lat={selectedJob?.latitude} lng={selectedJob?.longitude} />
       )}
-
-      <Markers />
     </MapContainer>
   );
 };
