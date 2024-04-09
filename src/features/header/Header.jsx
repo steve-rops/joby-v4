@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <div
       ref={element}
-      className="w-full h-fit bg-secondary sticky top-0 shadow-lg "
+      className="w-full h-fit bg-secondary sticky top-0 shadow-lg z-20"
     >
       <div className="flex justify-center pt-6 gap-2 items-center">
         <Form />

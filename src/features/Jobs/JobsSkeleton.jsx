@@ -7,7 +7,7 @@ const JobsSkeleton = () => {
     (v, i) => i
   );
   return (
-    <>
+    <div className="">
       {numberOfJobsPerPage.map((el) => (
         <div key={el}>
           <Skeleton className="bg-gray-300 p-2 mb-2">
@@ -16,7 +16,7 @@ const JobsSkeleton = () => {
           </Skeleton>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
