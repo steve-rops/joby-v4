@@ -7,8 +7,6 @@ import SetView from "./SetView";
 const Map = ({ id, jobs }) => {
   const selectedJob = jobs?.find((job) => job.id === id);
 
-  console.log(id);
-
   return (
     <MapContainer
       center={[51.505, -0.09]}

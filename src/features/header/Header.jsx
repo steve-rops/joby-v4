@@ -20,7 +20,7 @@ const Header = () => {
       ref={element}
       className="w-full h-fit bg-secondary sticky top-0 shadow-lg "
     >
-      <div className="flex justify-center pt-6 items-center">
+      <div className="flex justify-center pt-6 gap-2 items-center">
         <Form />
         <SettingsIcon />
       </div>
