@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { formatCurrency, isNewJob } from "../../../lib/utils";
+import { MdLocationOn } from "react-icons/md";
 
 const SingleJob = ({ job }) => {
   console.log(job);
@@ -7,7 +8,7 @@ const SingleJob = ({ job }) => {
     <div className="border-l-4 border-0 border-primary rounded-md pointer ">
       <Link to={`${job.id}`}>
         <div className="p-1 bg-secondary rounded-md flex items-center  ">
-          <div className="w-[50%]">
+          <div className="w-[70%]">
             <div className="w-full flex items-center">
               <p className="text-xs text-foreground/80 w-[70%]">
                 {job.company.display_name}
@@ -18,17 +19,25 @@ const SingleJob = ({ job }) => {
                 </span>
               )}
             </div>
-            <h3 className="text-md text-pretty text-foreground font-semibold">
+            <h3 className="text-lg text-pretty text-foreground font-semibold">
               {job.title}
             </h3>
+            <div className="flex items-center py-2 rounded-md">
+              <span className="text-foreground/70">
+                <MdLocationOn />
+              </span>
+              <p className="text-xs text-foreground/70">
+                {job.location.display_name}
+              </p>
+            </div>
           </div>
 
-          <section className="w-[50%] flex justify-end">
-            <div className="h-fit w-fit border border-primary rounded-md ">
+          <section className="w-[30%] gap-2 flex justify-center items-center ">
+            <div className="w-fit border border-primary rounded-md  ">
               <h4 className="text-center h-fit bg-primary/15 rounded-b-md text-xs">
                 wage
               </h4>
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center ">
                 <span className="text-xs text-primary/75"> up to</span>
               </div>
               <h3 className="text-sm px-1">
