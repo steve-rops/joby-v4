@@ -6,14 +6,15 @@ import useJobs from "../../../hooks/useJobs";
 const SingleJobLayout = () => {
   const { id } = useParams();
   const { data: jobs } = useJobs();
+  const selected = jobs?.find((job) => job.id === id);
 
   return (
     <div className="h-svh">
       <section className="h-[25%]">
-        <Map id={id} jobs={jobs} />
+        <Map selected={selected} />
       </section>
 
-      <DetailedInfo />
+      <DetailedInfo selected={selected} />
     </div>
   );
 };

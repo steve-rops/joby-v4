@@ -4,9 +4,7 @@ import Markers from "./Markers";
 import useJobs from "../../hooks/useJobs";
 import SetView from "./SetView";
 
-const Map = ({ id, jobs }) => {
-  const selectedJob = jobs?.find((job) => job.id === id);
-
+const Map = ({ selected }) => {
   return (
     <MapContainer
       center={[51.505, -0.09]}
@@ -19,12 +17,12 @@ const Map = ({ id, jobs }) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {!selectedJob && <MapInit />}
+      {!selected && <MapInit />}
 
       <Markers />
 
-      {selectedJob && (
-        <SetView lat={selectedJob?.latitude} lng={selectedJob?.longitude} />
+      {selected && (
+        <SetView lat={selected?.latitude} lng={selected?.longitude} />
       )}
     </MapContainer>
   );

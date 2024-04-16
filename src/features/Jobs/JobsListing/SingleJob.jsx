@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { formatCurrency, isNewJob } from "../../../lib/utils";
 import { MdLocationOn } from "react-icons/md";
+import NewLabel from "../../../components/ui/NewLabel";
 
 const SingleJob = ({ job }) => {
-  console.log(job);
   return (
     <div className="border-l-4 border-0 border-primary rounded-md pointer ">
       <Link to={`${job.id}`}>
@@ -13,11 +13,7 @@ const SingleJob = ({ job }) => {
               <p className="text-xs text-foreground/80 w-[70%]">
                 {job.company.display_name}
               </p>
-              {isNewJob(job.created) && (
-                <span className="px-2 text-center bg-yellow-300 rounded-lg text-yellow-800">
-                  new
-                </span>
-              )}
+              {isNewJob(job.created) && <NewLabel />}
             </div>
             <h3 className="text-lg text-pretty text-foreground font-semibold">
               {job.title}
@@ -32,7 +28,7 @@ const SingleJob = ({ job }) => {
             </div>
           </div>
 
-          <section className="w-[30%] gap-2 flex justify-center items-center ">
+          <section className="w-[30%] gap-2 flex items-center ">
             <div className="w-fit border border-primary rounded-md  ">
               <h4 className="text-center h-fit bg-primary/15 rounded-b-md text-xs">
                 wage
