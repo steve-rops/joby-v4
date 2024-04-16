@@ -8,7 +8,7 @@ const SingleJob = ({ job }) => {
     <div className="border-l-4 border-0 border-primary rounded-md pointer ">
       <Link to={`${job.id}`}>
         <div className="p-1 bg-secondary rounded-md flex items-center  ">
-          <div className="w-[70%]">
+          <div className="w-[65%]">
             <div className="w-full flex items-center">
               <p className="text-xs text-foreground/80 w-[70%]">
                 {job.company.display_name}
@@ -28,7 +28,7 @@ const SingleJob = ({ job }) => {
             </div>
           </div>
 
-          <section className="w-[30%] gap-2 flex items-center ">
+          <section className="w-[35%] gap-2 flex items-center ">
             <div className="w-fit border border-primary rounded-md  ">
               <h4 className="text-center h-fit bg-primary/15 rounded-b-md text-xs">
                 wage
