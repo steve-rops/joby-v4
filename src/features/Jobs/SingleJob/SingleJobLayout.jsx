@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import Map from "../../map/Map";
-import DetailedInfo from "./DetailedInfo";
 import useJobs from "../../../hooks/useJobs";
+import DetailedInfo from "../selectedJob/DetailedInfo";
 
 const SingleJobLayout = () => {
   const { id } = useParams();

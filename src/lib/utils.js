@@ -6,7 +6,7 @@ export function cn(...inputs) {
 }
 
 export const formatCurrency = (value) =>
-  new Intl.NumberFormat("en", { style: "currency", currency: "USD" }).format(
+  new Intl.NumberFormat("en", { style: "currency", currency: "GBP" }).format(
     value
   );
 
