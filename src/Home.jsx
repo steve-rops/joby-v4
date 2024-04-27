@@ -1,12 +1,22 @@
-import { Link } from "react-router-dom";
-import { Button } from "./components/ui/button";
+import { Navigate } from "react-router-dom";
+import { SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react";
 
 const Home = () => {
   return (
     <div className="h-svh w-full grid place-items-center">
-      <Link to="app">
-        <Button>app</Button>
-      </Link>
+      <header className="header">
+        <div>
+          <div>
+            <p>Clerk + React + React Router App</p>
+          </div>
+          <SignedIn>
+            <Navigate to="app" />
+          </SignedIn>
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
+        </div>
+      </header>
     </div>
   );
 };

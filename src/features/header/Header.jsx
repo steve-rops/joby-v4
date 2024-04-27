@@ -9,11 +9,11 @@ const Header = () => {
   const dispatch = useDispatch();
   const element = useRef();
 
-  useEffect(() => {
-    const { height } = element.current.getBoundingClientRect();
+  // useEffect(() => {
+  //   const { height } = element.current.getBoundingClientRect();
 
-    dispatch(updateHeaderHeight(height));
-  }, [dispatch]);
+  //   dispatch(updateHeaderHeight(height));
+  // }, [dispatch]);
 
   return (
     <div
