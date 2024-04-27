@@ -6,7 +6,6 @@ import MapLayout from "./features/map/MapLayout";
 import Home from "./Home";
 import JobsListing from "./features/Jobs/JobsListing/JobsListing";
 import SingleJobLayout from "./features/Jobs/SingleJob/SingleJobLayout";
-import Authentication from "./features/auth/Authentication";
 
 function App() {
   const queryClient = new QueryClient({
