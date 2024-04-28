@@ -6,6 +6,7 @@ import MapLayout from "./features/map/MapLayout";
 import Home from "./Home";
 import JobsListing from "./features/Jobs/JobsListing/JobsListing";
 import SingleJobLayout from "./features/Jobs/SingleJob/SingleJobLayout";
+import About from "./About";
 
 function App() {
   const queryClient = new QueryClient({
@@ -20,6 +21,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
+          <Route path="about" element={<About />} />
           <Route index element={<Home />} />
           <Route path="app" element={<MobileLayout />}>
             <Route path="" element={<JobsListing />} />
