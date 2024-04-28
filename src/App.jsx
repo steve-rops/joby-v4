@@ -1,12 +1,14 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import MobileLayout from "./MobileLayout";
 import MapLayout from "./features/map/MapLayout";
-import Home from "./Home";
 import JobsListing from "./features/Jobs/JobsListing/JobsListing";
 import SingleJobLayout from "./features/Jobs/SingleJob/SingleJobLayout";
 import About from "./About";
+import Home from "./pages/Home";
+import SignInComponent from "./features/auth/signIn/SignInComponent";
+import { SignedIn, SignedOut } from "@clerk/clerk-react";
 
 function App() {
   const queryClient = new QueryClient({
@@ -21,9 +23,22 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
+          <Route path="sign-in" element={<SignInComponent />} />
           <Route path="about" element={<About />} />
           <Route index element={<Home />} />
-          <Route path="app" element={<MobileLayout />}>
+          <Route
+            path="app"
+            element={
+              <>
+                <SignedIn>
+                  <MobileLayout />
+                </SignedIn>
+                <SignedOut>
+                  <Navigate to="/sign-in" />
+                </SignedOut>
+              </>
+            }
+          >
             <Route path="" element={<JobsListing />} />
             <Route path="map" element={<MapLayout />} />
           </Route>

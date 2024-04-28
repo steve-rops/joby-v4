@@ -1,7 +1,13 @@
 import { Drawer } from "vaul";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
-import { SignInButton, SignUpButton, SignedOut } from "@clerk/clerk-react";
+import {
+  SignIn,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+} from "@clerk/clerk-react";
 import { Button } from "../../components/ui/button";
 
 const HamburgerMenu = () => {
