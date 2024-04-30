@@ -1,6 +1,7 @@
 import { SignInButton, SignUpButton, SignedOut } from "@clerk/clerk-react";
 import HamburgerMenu from "../features/hamburger/HamburgerMenu";
 import { Button } from "../components/ui/button";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -19,17 +20,17 @@ const Home = () => {
         <h1 className="text-4xl">Find your dream Job.</h1>
 
         <div className="flex flex-col items-center gap-2">
-          <h2>Sign-in or Sign-up to continue</h2>
-
           <SignedOut>
-            <div className="space-x-1">
+            <section>
               <Button className="">
-                <SignInButton forceRedirectUrl="/app" />
+                <Link to="sign-in">Sign in</Link>
               </Button>
+              <span> or </span>
               <Button variant="outline">
-                <SignUpButton />
+                <Link to="sign-up">Sign up</Link>
               </Button>
-            </div>
+              <span> to continue</span>
+            </section>
           </SignedOut>
         </div>
       </section>
