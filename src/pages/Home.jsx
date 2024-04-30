@@ -6,7 +6,7 @@ import {
 } from "@clerk/clerk-react";
 import HamburgerMenu from "../features/hamburger/HamburgerMenu";
 import { Button } from "../components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -39,11 +39,7 @@ const Home = () => {
           </SignedOut>
 
           <SignedIn>
-            <section>
-              <Button>
-                <Link to="/app">continue to app</Link>
-              </Button>
-            </section>
+            <Navigate to="/app" replace />
           </SignedIn>
         </div>
       </section>
