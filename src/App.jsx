@@ -9,6 +9,7 @@ import About from "./About";
 import Home from "./pages/Home";
 import SignInComponent from "./features/auth/signIn/SignInComponent";
 import { SignedIn, SignedOut } from "@clerk/clerk-react";
+import SignUpComponent from "./features/auth/signup/SignUpComponent";
 
 function App() {
   const queryClient = new QueryClient({
@@ -23,7 +24,6 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route path="sign-in" element={<SignInComponent />} />
           <Route path="about" element={<About />} />
           <Route index element={<Home />} />
           <Route
@@ -43,6 +43,8 @@ function App() {
             <Route path="map" element={<MapLayout />} />
           </Route>
           <Route path="app/:id" element={<SingleJobLayout />} />
+          <Route path="sign-up" element={<SignUpComponent />} />
+          <Route path="sign-in" element={<SignInComponent />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
