@@ -1,4 +1,9 @@
-import { SignInButton, SignUpButton, SignedOut } from "@clerk/clerk-react";
+import {
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+} from "@clerk/clerk-react";
 import HamburgerMenu from "../features/hamburger/HamburgerMenu";
 import { Button } from "../components/ui/button";
 import { Link } from "react-router-dom";
@@ -32,6 +37,14 @@ const Home = () => {
               <span> to continue</span>
             </section>
           </SignedOut>
+
+          <SignedIn>
+            <section>
+              <Button>
+                <Link to="/app">continue to app</Link>
+              </Button>
+            </section>
+          </SignedIn>
         </div>
       </section>
     </div>
