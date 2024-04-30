@@ -26,19 +26,7 @@ function App() {
         <Routes>
           <Route path="about" element={<About />} />
           <Route index element={<Home />} />
-          <Route
-            path="app"
-            element={
-              <>
-                <SignedIn>
-                  <MobileLayout />
-                </SignedIn>
-                <SignedOut>
-                  <Navigate to="/sign-in" />
-                </SignedOut>
-              </>
-            }
-          >
+          <Route path="app" element={<MobileLayout />}>
             <Route path="" element={<JobsListing />} />
             <Route path="map" element={<MapLayout />} />
           </Route>
