@@ -10,8 +10,6 @@ import { RiAdvertisementFill } from "react-icons/ri";
 import { LuWarehouse } from "react-icons/lu";
 import Category from "./Category";
 import { useSelector } from "react-redux";
-import { SignOutButton, SignedIn } from "@clerk/clerk-react";
-import { Button } from "../../../components/ui/button";
 
 const categories = [
   { id: 0, label: "Accounting", logo: <ImBooks /> },
@@ -33,13 +31,7 @@ const Categories = () => {
   return (
     <div className="py-2 px-4 text-sm font-semibold h-fit">
       <h2 className="text-md">Top Categories:</h2>
-      <div>
-        <SignedIn>
-          <Button asChild>
-            <SignOutButton />
-          </Button>
-        </SignedIn>
-      </div>
+
       <div className="overflow-x-scroll flex gap-7 py-4">
         {categories?.map((cat) => (
           <Category

@@ -1,13 +1,26 @@
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import Header from "./features/header/Header";
+import { useUser } from "@clerk/clerk-react";
+import DrawerComp from "./components/ui/DrawerComp";
+import { useState } from "react";
 
 const MobileLayout = () => {
-  return (
-    <div className="flex flex-col">
-      <Header />
+  const { user } = useUser();
+  const [DrawerIsOpen, setDrawerIsOpen] = useState(false);
 
-      <Outlet />
-    </div>
+  if (!user) {
+    return <Navigate to="/sign-in" replace />;
+  }
+
+  return (
+    <>
+      <div className="flex flex-col">
+        <Header setDrawerIsOpen={setDrawerIsOpen} />
+
+        <Outlet />
+      </div>
+      <DrawerComp isOpen={DrawerIsOpen} setIsOpen={setDrawerIsOpen} />
+    </>
   );
 };
 

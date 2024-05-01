@@ -1,9 +1,4 @@
-import {
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-} from "@clerk/clerk-react";
+import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import HamburgerMenu from "../features/hamburger/HamburgerMenu";
 import { Button } from "../components/ui/button";
 import { Link, Navigate } from "react-router-dom";
@@ -21,7 +16,7 @@ const Home = () => {
         </nav>
       </header>
 
-      <section className="p-10 flex-1 justify-center flex flex-col items-center gap-4 ">
+      <section className="flex-1 justify-center flex flex-col items-center gap-3 ">
         <h1 className="text-4xl">Find your dream Job.</h1>
 
         <div className="flex flex-col items-center gap-2">

@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 import useJobs from "../../hooks/useJobs";
 
 const MyDrawer = () => {
-  const [snap, setSnap] = useState(0.33);
+  const [snap, setSnap] = useState(0.34);
   const { data, isLoading } = useJobs();
 
   if (snap === 1) return <Navigate to={"/app"} />;
@@ -14,7 +14,7 @@ const MyDrawer = () => {
     <Drawer.Root
       open
       modal={false}
-      snapPoints={[0.33, 1]}
+      snapPoints={[0.34, 1]}
       activeSnapPoint={snap}
       setActiveSnapPoint={setSnap}
     >
@@ -25,7 +25,7 @@ const MyDrawer = () => {
         <div className="h-2 w-12 bg-primary/75 rounded-md mx-auto mt-2" />
 
         <div
-          className={`w-[65%] flex justify-center text-sm font-mono rounded-md ${
+          className={`w-[65%] flex justify-center  font-mono rounded-md ${
             isLoading ? "" : "bg-primary/15"
           }`}
         >

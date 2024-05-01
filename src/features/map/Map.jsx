@@ -1,7 +1,6 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import MapInit from "./MapInit";
 import Markers from "./Markers";
-import useJobs from "../../hooks/useJobs";
 import SetView from "./SetView";
 
 const Map = ({ selected }) => {

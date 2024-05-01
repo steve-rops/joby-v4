@@ -1,28 +1,26 @@
-import { useEffect, useRef } from "react";
+import { SignOutButton, SignedIn } from "@clerk/clerk-react";
 import Form from "./Query/Form";
-import SettingsIcon from "./SettingsIcon";
 import Categories from "./categories/Categories";
-import { useDispatch } from "react-redux";
-import { updateHeaderHeight } from "../../components/ui/uiSlice";
+import { Button } from "../../components/ui/button";
+import { IoOptionsOutline } from "react-icons/io5";
 
-const Header = () => {
-  const dispatch = useDispatch();
-  const element = useRef();
-
-  // useEffect(() => {
-  //   const { height } = element.current.getBoundingClientRect();
-
-  //   dispatch(updateHeaderHeight(height));
-  // }, [dispatch]);
-
+const Header = ({ setDrawerIsOpen }) => {
   return (
-    <div
-      ref={element}
-      className="w-full h-fit bg-secondary sticky top-0 shadow-lg z-20"
-    >
+    <div className="w-full h-fit bg-secondary sticky top-0 shadow-lg z-20">
+      <SignedIn>
+        <Button>
+          <SignOutButton />
+        </Button>
+      </SignedIn>
       <div className="flex justify-center pt-6 gap-2 items-center">
         <Form />
-        <SettingsIcon />
+
+        <span
+          className="text-3xl h-fit p-1 rounded-full border border-foreground cursor-pointer"
+          onClick={() => setDrawerIsOpen((open) => !open)}
+        >
+          <IoOptionsOutline />
+        </span>
       </div>
       <Categories />
     </div>

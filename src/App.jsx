@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import MobileLayout from "./MobileLayout";
@@ -8,7 +8,6 @@ import SingleJobLayout from "./features/Jobs/SingleJob/SingleJobLayout";
 import About from "./About";
 import Home from "./pages/Home";
 import SignInComponent from "./features/auth/signIn/SignInComponent";
-import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import SignUpComponent from "./features/auth/signup/SignUpComponent";
 
 function App() {
