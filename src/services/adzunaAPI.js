@@ -4,9 +4,9 @@ export const resultsPerPage = 15;
 // const url =
 //   "https://api.adzuna.com/v1/api/jobs/us/search/1?app_id={YOUR_APP_ID}&app_key={YOUR_APP_KEY}&results_per_page=20";
 
-export const getDefaultJobs = async (query = "") => {
+export const getDefaultJobs = async (query = "", country) => {
   const res = await fetch(
-    `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=${id}&app_key=${key}&results_per_page=${resultsPerPage}&what=${query}`
+    `https://api.adzuna.com/v1/api/jobs/${country}/search/1?app_id=${id}&app_key=${key}&results_per_page=${resultsPerPage}&what=${query}`
   );
   if (!res.ok) throw new Error(res);
 

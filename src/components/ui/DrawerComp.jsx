@@ -1,10 +1,16 @@
 import { Drawer } from "vaul";
 import { Button } from "./button";
+import { useDispatch, useSelector } from "react-redux";
+import { updateSettings } from "../../features/settings/settingsSlice";
 
 const DrawerComp = ({ isOpen = false, setIsOpen }) => {
+  const dispatch = useDispatch();
+  const { country: selectedCountry } = useSelector((state) => state.settings);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.country.value);
+    setIsOpen(false);
+    dispatch(updateSettings(e.target.country.value));
   };
 
   return (
@@ -16,14 +22,29 @@ const DrawerComp = ({ isOpen = false, setIsOpen }) => {
             <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-zinc-300 mb-8" />
 
             <Drawer.Title className="font-medium">
-              <h2 className="text-3xl text-primary mb-2">Settings</h2>
+              <p className="text-3xl text-primary mb-2">Settings</p>
             </Drawer.Title>
             <form className="space-x-2 text-xl" onSubmit={handleSubmit}>
               <label htmlFor="country">Country:</label>
               <select name="country" id="country">
-                <option value="gb">Great Britain</option>
-                <option value="es">Spain</option>
-                <option value="us">United States</option>
+                <option
+                  value="gb"
+                  selected={selectedCountry === "gb" ? true : false}
+                >
+                  Great Britain
+                </option>
+                <option
+                  value="es"
+                  selected={selectedCountry === "es" ? true : false}
+                >
+                  Spain
+                </option>
+                <option
+                  value="us"
+                  selected={selectedCountry === "us" ? true : false}
+                >
+                  United States
+                </option>
               </select>
               <div className="space-x-2 w-full mt-3 flex justify-end ">
                 <Button type="submit" className="text-xl">

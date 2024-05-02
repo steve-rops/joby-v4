@@ -4,12 +4,15 @@ import { getDefaultJobs } from "../services/adzunaAPI";
 
 const useJobs = () => {
   const { query } = useSelector((store) => store.query);
+  const { country } = useSelector((store) => store.settings);
+
+  console.log(country);
   const { data, isLoading } = useQuery({
-    queryKey: ["jobs", query],
-    queryFn: () => getDefaultJobs(query),
+    queryKey: ["jobs", query, country],
+    queryFn: () => getDefaultJobs(query, country),
   });
 
-  return { data, isLoading, query };
+  return { data, isLoading, query, country };
 };
 
 export default useJobs;

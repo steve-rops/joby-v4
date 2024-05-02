@@ -22,10 +22,10 @@ const Form = () => {
   }, 800);
 
   return (
-    <section ref={element} className="w-[83%]">
+    <section ref={element} className="w-[80%]">
       <form className="w-full" onSubmit={(e) => e.preventDefault()}>
         <input
-          className="rounded-lg shadow-lg  p-3 text-lg w-full"
+          className="rounded-lg shadow-lg  p-4 text-lg w-full"
           type="text"
           value={value}
           placeholder="search your dream job"

@@ -4,6 +4,7 @@ import { MdLocationOn } from "react-icons/md";
 import NewLabel from "../../../components/ui/NewLabel";
 
 const SingleJob = ({ job }) => {
+  console.log(job);
   return (
     <div className="border-l-4 border-0 border-primary rounded-md pointer ">
       <Link to={`${job.id}`}>
@@ -33,13 +34,18 @@ const SingleJob = ({ job }) => {
               <h4 className="text-center h-fit bg-primary/15 rounded-b-md text-xs">
                 wage
               </h4>
-              <div className="flex flex-col items-center ">
-                <span className="text-xs text-primary/75"> up to</span>
-              </div>
-              <h3 className="text-sm px-1">
-                {formatCurrency(job.salary_max)}
-                <span className="text-xs"> /yr</span>
-              </h3>
+
+              {(job.salary_max && (
+                <>
+                  <div className="flex flex-col items-center ">
+                    <span className="text-xs text-primary/75"> up to</span>
+                  </div>
+                  <h3 className="text-sm px-1">
+                    {formatCurrency(job.salary_max)}
+                    <span className="text-xs"> /yr</span>
+                  </h3>
+                </>
+              )) || <h3 className="text-sm px-1">contact employer</h3>}
             </div>
           </section>
         </div>

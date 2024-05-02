@@ -2,8 +2,12 @@ import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import HamburgerMenu from "../features/hamburger/HamburgerMenu";
 import { Button } from "../components/ui/button";
 import { Link, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+  const { country } = useSelector((store) => store.settings);
+  console.log(country);
+
   return (
     <div className="h-svh w-full flex flex-col">
       <header className="p-4 flex items-center justify-between shadow-md">
