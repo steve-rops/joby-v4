@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="about" element={<About />} />
         <Route index element={<Home />} />
-        <Route path="app" element={<MobileLayout />}>
+        <Route path="app" replace element={<MobileLayout />}>
           <Route path="" element={<JobsListing />} />
           <Route path="map" element={<MapLayout />} />
         </Route>

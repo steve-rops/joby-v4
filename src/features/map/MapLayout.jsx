@@ -6,7 +6,7 @@ const MapLayout = () => {
   const { data: jobs } = useJobs();
   return (
     <>
-      <div className="h-[calc(100svh-230px)] z-10 w-full">
+      <div className="h-[calc(100svh-210px)] z-10 w-full">
         <Map jobs={jobs} />
       </div>
       <MyDrawer />

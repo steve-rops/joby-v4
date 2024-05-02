@@ -16,7 +16,6 @@ const MobileLayout = () => {
     <>
       <div className="flex flex-col">
         <Header setDrawerIsOpen={setDrawerIsOpen} />
-
         <Outlet />
       </div>
       <DrawerComp isOpen={DrawerIsOpen} setIsOpen={setDrawerIsOpen} />
