@@ -4,7 +4,6 @@ import { MdLocationOn } from "react-icons/md";
 import NewLabel from "../../../components/ui/NewLabel";
 
 const SingleJob = ({ job }) => {
-  console.log(job);
   return (
     <div className="border-l-4 border-0 border-primary rounded-md pointer ">
       <Link to={`${job.id}`}>

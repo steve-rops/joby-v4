@@ -10,7 +10,7 @@ import Description from "./Description";
 
 const DetailedInfo = ({ selected }) => {
   const [isLiked, setIsLiked] = useState(false);
-  const tags = selected.category.tag.split("-").slice(0, -1);
+  const tags = selected?.category?.tag?.split("-").slice(0, -1);
 
   return (
     <main className="h-lvh p-3">

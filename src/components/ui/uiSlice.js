@@ -1,19 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  headerHeight: 212,
+  footerIsShown: true,
+  toggleMapBtnIsShown: false,
 };
 
 const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
-    updateHeaderHeight(state, action) {
-      state.headerHeight = action.payload;
+    showBtnHideFooter(state) {
+      state.toggleMapBtnIsShown = true;
+      state.footerIsShown = false;
+    },
+    showFooterHideBtn(state) {
+      state.footerIsShown = true;
+      state.toggleMapBtnIsShown = false;
     },
   },
 });
 
-export const { updateHeaderHeight } = uiSlice.actions;
+export const { showBtnHideFooter, showFooterHideBtn } = uiSlice.actions;
 
 export default uiSlice.reducer;

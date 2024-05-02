@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 const Home = () => {
   const { country } = useSelector((store) => store.settings);
-  console.log(country);
 
   return (
     <div className="h-svh w-full flex flex-col">

@@ -6,7 +6,6 @@ const useJobs = () => {
   const { query } = useSelector((store) => store.query);
   const { country } = useSelector((store) => store.settings);
 
-  console.log(country);
   const { data, isLoading } = useQuery({
     queryKey: ["jobs", query, country],
     queryFn: () => getDefaultJobs(query, country),

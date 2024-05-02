@@ -83,3 +83,8 @@
 .categories::-webkit-scrollbar {
   display: none;
 }
+
+.cl-avatarBox {
+  width: 40px;
+  height: 40px;
+}

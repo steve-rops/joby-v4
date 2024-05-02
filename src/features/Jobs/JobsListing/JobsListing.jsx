@@ -2,9 +2,26 @@ import JobsSkeleton from "../JobsSkeleton";
 import useJobs from "../../../hooks/useJobs";
 import MapToggleButton from "../../map/MapToggleButton";
 import SingleJob from "./SingleJob";
+import Footer from "../../footer/Footer";
+import { useInView } from "react-intersection-observer";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  showBtnHideFooter,
+  showFooterHideBtn,
+} from "../../../components/ui/uiSlice";
 
 const JobsListing = () => {
+  const dispatch = useDispatch();
   const { data: jobs, isLoading } = useJobs();
+  const { ref } = useInView({
+    threshold: 0,
+    onChange: (inView) => {
+      inView ? dispatch(showFooterHideBtn()) : dispatch(showBtnHideFooter());
+    },
+  });
+  const { footerIsShown, toggleMapBtnIsShown } = useSelector(
+    (store) => store.ui
+  );
 
   return (
     <>
@@ -13,7 +30,10 @@ const JobsListing = () => {
           <JobsSkeleton />
         ) : (
           <div className="pb-12 space-y-2">
-            <div className="text-center font-mono py-1 bg-primary/10 rounded-lg">
+            <div
+              ref={ref}
+              className="text-center font-mono py-1 bg-primary/10 rounded-lg"
+            >
               {jobs?.length} jobs were found
             </div>
             {jobs?.map((job) => (
@@ -22,8 +42,10 @@ const JobsListing = () => {
           </div>
         )}
       </div>
-
-      <MapToggleButton />
+      <div className="transition-all">
+        <MapToggleButton display={toggleMapBtnIsShown} />
+        <Footer display={footerIsShown} />
+      </div>
     </>
   );
 };
