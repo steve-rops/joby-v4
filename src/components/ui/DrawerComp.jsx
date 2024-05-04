@@ -2,8 +2,10 @@ import { Drawer } from "vaul";
 import { Button } from "./button";
 import { useDispatch, useSelector } from "react-redux";
 import { updateSettings } from "../../features/settings/settingsSlice";
+import { useState } from "react";
 
 const DrawerComp = ({ isOpen = false, setIsOpen }) => {
+  const [value, setValue] = useState("gb");
   const dispatch = useDispatch();
   const { country: selectedCountry } = useSelector((state) => state.settings);
 
@@ -26,25 +28,15 @@ const DrawerComp = ({ isOpen = false, setIsOpen }) => {
             </Drawer.Title>
             <form className="space-x-2 text-xl" onSubmit={handleSubmit}>
               <label htmlFor="country">Country:</label>
-              <select name="country" id="country">
-                <option
-                  value="gb"
-                  selected={selectedCountry === "gb" ? true : false}
-                >
-                  Great Britain
-                </option>
-                <option
-                  value="es"
-                  selected={selectedCountry === "es" ? true : false}
-                >
-                  Spain
-                </option>
-                <option
-                  value="us"
-                  selected={selectedCountry === "us" ? true : false}
-                >
-                  United States
-                </option>
+              <select
+                name="country"
+                id="country"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+              >
+                <option value="gb">Great Britain</option>
+                <option value="es">Spain</option>
+                <option value="us">United States</option>
               </select>
               <div className="space-x-2 w-full mt-3 flex justify-end ">
                 <Button type="submit" className="text-xl">

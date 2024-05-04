@@ -6,10 +6,10 @@ const MapToggleButton = ({ display }) => {
   return (
     <Link to="map">
       <span hidden={!display}>
-        <Button className="fixed bottom-4 left-[50%] translate-x-[-50%] z-10 rounded-full space-x-1 text-lg  ">
-          <span className="flex items-center">
-            <p>map</p>
-            <CiMap className="text-2xl" />
+        <Button className="fixed bottom-10 left-[50%] translate-x-[-50%] z-10 rounded-full space-x-1  ">
+          <span className="flex">
+            <p className="text-xl">map</p>
+            <CiMap className="text-3xl" />
           </span>
         </Button>
       </span>

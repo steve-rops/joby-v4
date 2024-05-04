@@ -11,11 +11,14 @@ import Description from "./Description";
 const DetailedInfo = ({ selected }) => {
   const [isLiked, setIsLiked] = useState(false);
   const tags = selected?.category?.tag?.split("-").slice(0, -1);
+  console.log(selected);
 
   return (
     <main className="h-lvh p-3">
       <section className="w-full flex items-center justify-between ">
-        <h3 className="text-xl font-semibold">{selected?.title}</h3>
+        <span className="w-[90%]">
+          <h3 className="text-xl font-semibold">{selected?.title}</h3>
+        </span>
 
         <span
           className="cursor-pointer"
@@ -39,12 +42,15 @@ const DetailedInfo = ({ selected }) => {
           <CategoryLabel key={cat} cat={cat} />
         ))}
       </div>
-      <WageInfo
-        salaryMin={selected?.salary_min}
-        salaryMax={selected?.salary_max}
-      />
 
-      <Description desc={selected?.description} />
+      <section className="space-y-3">
+        <WageInfo
+          salaryMin={selected?.salary_min}
+          salaryMax={selected?.salary_max}
+        />
+
+        <Description desc={selected?.description} url={selected.redirect_url} />
+      </section>
     </main>
   );
 };

@@ -36,9 +36,9 @@ const Home = () => {
             </section>
           </SignedOut>
 
-          <SignedIn>
+          {/* <SignedIn>
             <Navigate to="/app" replace />
-          </SignedIn>
+          </SignedIn> */}
         </div>
       </section>
     </div>

@@ -12,8 +12,8 @@ const Category = ({ cat, activeID, query }) => {
         dispatch(updateQuery(cat.label.toLowerCase()));
         dispatch(updateActiveID(cat.id));
       }}
-      className={`flex flex-col items-center transition-all ${
-        isActive ? "border-b border-primary" : ""
+      className={`flex cursor-pointer flex-col items-center transition-all ${
+        isActive ? "border-b-[1.5px] border-primary" : ""
       }  `}
       key={cat.label}
     >
