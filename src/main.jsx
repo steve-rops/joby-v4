@@ -21,7 +21,7 @@ if (!PUBLISHABLE_KEY) {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ClerkProvider publishableKey={PUBLISHABLE_KEY} signInUrl="/sign-in">
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
           <App />

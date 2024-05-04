@@ -1,11 +1,14 @@
-import { SignedIn, SignedOut } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, useUser } from "@clerk/clerk-react";
 import HamburgerMenu from "../features/hamburger/HamburgerMenu";
 import { Button } from "../components/ui/button";
 import { Link, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import FullPageLoader from "../components/ui/FullPageLoader";
 
 const Home = () => {
   const { country } = useSelector((store) => store.settings);
+  const { isLoaded } = useUser();
+  if (!isLoaded) return <FullPageLoader />;
 
   return (
     <div className="h-svh w-full flex flex-col">
@@ -36,9 +39,9 @@ const Home = () => {
             </section>
           </SignedOut>
 
-          {/* <SignedIn>
+          <SignedIn>
             <Navigate to="/app" replace />
-          </SignedIn> */}
+          </SignedIn>
         </div>
       </section>
     </div>
