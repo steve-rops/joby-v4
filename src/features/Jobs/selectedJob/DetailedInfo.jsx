@@ -1,17 +1,36 @@
+import { useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
+import { FaHeartCircleCheck } from "react-icons/fa6";
+
 import { isNewJob } from "../../../lib/utils";
 import NewLabel from "../../../components/ui/NewLabel";
-
-import { FaHeartCircleCheck } from "react-icons/fa6";
-import { useState } from "react";
 import CategoryLabel from "../../../components/ui/CategoryLabel";
-import WageInfo from "./WageInfo";
-import Description from "./Description";
+import WageInfo from "./components/WageInfo";
+import Description from "./components/Description";
+import useCreateLike from "../../../hooks/useLikes";
+import useCheckIfLiked from "../../../hooks/useCheckIFLiked";
+import FullPageLoader from "../../../components/ui/FullPageLoader";
 
 const DetailedInfo = ({ selected }) => {
-  const [isLiked, setIsLiked] = useState(false);
+  const {
+    data,
+    isLoading: isChecking,
+    isLiked: isAlreadyLiked,
+  } = useCheckIfLiked(selected?.id);
+
+  const [liked, setLiked] = useState(false);
+
   const tags = selected?.category?.tag?.split("-").slice(0, -1);
-  console.log(selected);
+  const { mutate: createLike, isLoading } = useCreateLike();
+
+  useEffect(
+    function () {
+      setLiked(isAlreadyLiked);
+    },
+    [isAlreadyLiked]
+  );
+
+  if (isChecking) return <FullPageLoader />;
 
   return (
     <main className="h-lvh p-3">
@@ -21,19 +40,23 @@ const DetailedInfo = ({ selected }) => {
         </span>
 
         <span
-          className="cursor-pointer"
-          onClick={() => setIsLiked((liked) => !liked)}
+          disabled={isLoading}
+          className="cursor-pointer disabled:text-gray-500"
+          onClick={() => {
+            setLiked((liked) => !liked);
+            createLike(selected);
+          }}
         >
-          {isLiked ? (
-            <FaHeartCircleCheck className="text-red-500 text-2xl" />
+          {liked ? (
+            <FaHeartCircleCheck className="text-red-500 text-3xl" />
           ) : (
-            <FaRegHeart className="text-red-500 text-xl" />
+            <FaRegHeart className="text-red-500 text-2xl" />
           )}
         </span>
       </section>
       <p className="text-sm text-gray-500 pb-3  ">
-        located at:{" "}
-        <span className="text-primary">{selected.location.display_name}</span>
+        located at:
+        <span className="text-primary">{selected?.location.display_name}</span>
       </p>
 
       <div className="flex gap-2 items-center">
@@ -49,7 +72,10 @@ const DetailedInfo = ({ selected }) => {
           salaryMax={selected?.salary_max}
         />
 
-        <Description desc={selected?.description} url={selected.redirect_url} />
+        <Description
+          desc={selected?.description}
+          url={selected?.redirect_url}
+        />
       </section>
     </main>
   );

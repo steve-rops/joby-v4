@@ -6,7 +6,9 @@ import DetailedInfo from "../selectedJob/DetailedInfo";
 const SingleJobLayout = () => {
   const { id } = useParams();
   const { data: jobs } = useJobs();
-  const selected = jobs?.find((job) => job.id === id);
+  const selected = jobs?.find((job) => job.id === id) || null;
+
+  //add a guard to prevent if a job is not found / there is no selected job
 
   return (
     <div className="h-svh">
