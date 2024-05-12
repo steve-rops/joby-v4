@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import SignInComponent from "./features/auth/signIn/SignInComponent";
 import SignUpComponent from "./features/auth/signup/SignUpComponent";
 import ProtectedRoutes from "./features/auth/ProtectedRoutes";
+import Liked from "./features/Liked/Liked";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="map" element={<MapLayout />} />
         </Route>
         <Route path="app/:id" element={<SingleJobLayout />} />
+        <Route path="app/liked" element={<Liked />} />
         <Route path="sign-up" element={<SignUpComponent />} />
         <Route path="sign-in" element={<SignInComponent />} />
       </Routes>

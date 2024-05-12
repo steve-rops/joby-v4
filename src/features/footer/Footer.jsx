@@ -1,8 +1,10 @@
 import { UserButton, useUser } from "@clerk/clerk-react";
 import { FaRegHeart } from "react-icons/fa6";
 import { PiMagnifyingGlassBold } from "react-icons/pi";
+import { useNavigate } from "react-router-dom";
 const Footer = ({ display }) => {
   const { user } = useUser();
+  const navigate = useNavigate();
 
   return (
     <div
@@ -15,7 +17,10 @@ const Footer = ({ display }) => {
             <PiMagnifyingGlassBold className="size-6 font-bold" />
             <p className="text-xs">Discover</p>
           </span>
-          <span className="flex flex-col items-center p-2 cursor-pointer hover:bg-secondary-foreground/15 hover:rounded-md">
+          <span
+            onClick={() => navigate("liked")}
+            className="flex flex-col items-center p-2 cursor-pointer hover:bg-secondary-foreground/15 hover:rounded-md"
+          >
             <FaRegHeart className=" size-6 " />
             <p className="text-xs">Liked</p>
           </span>

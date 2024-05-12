@@ -3,20 +3,21 @@ import { useAuth } from "@clerk/clerk-react";
 
 import { checkLikedForCurrentUser } from "../services/supabaseAPI";
 
-const useCheckIfLiked = (selectedId) => {
+const useLiked = (selectedId = null) => {
   let isLiked = false;
   const { userId } = useAuth();
-  const { data, isLoading } = useQuery({
+  const { data, isFetching: isLoading } = useQuery({
     queryKey: ["checkIfLiked", selectedId],
     queryFn: () => checkLikedForCurrentUser(userId),
+    staleTime: 0,
   });
 
-  if (!isLoading) isLiked = data.some((el) => el.jobId === selectedId);
+  if (!isLoading && selectedId)
+    isLiked = data.some((el) => el.jobId === selectedId);
 
-  console.log(isLiked);
   return { data, isLoading, isLiked };
 };
 
-export default useCheckIfLiked;
+export default useLiked;
 
 //

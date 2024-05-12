@@ -7,16 +7,17 @@ import NewLabel from "../../../components/ui/NewLabel";
 import CategoryLabel from "../../../components/ui/CategoryLabel";
 import WageInfo from "./components/WageInfo";
 import Description from "./components/Description";
-import useCreateLike from "../../../hooks/useLikes";
-import useCheckIfLiked from "../../../hooks/useCheckIFLiked";
+import useCreateLike from "../../../hooks/useCreateLike";
+
 import FullPageLoader from "../../../components/ui/FullPageLoader";
+import useLiked from "../../../hooks/useLiked";
 
 const DetailedInfo = ({ selected }) => {
   const {
     data,
     isLoading: isChecking,
     isLiked: isAlreadyLiked,
-  } = useCheckIfLiked(selected?.id);
+  } = useLiked(selected.id);
 
   const [liked, setLiked] = useState(false);
 
@@ -40,7 +41,6 @@ const DetailedInfo = ({ selected }) => {
         </span>
 
         <span
-          disabled={isLoading}
           className="cursor-pointer disabled:text-gray-500"
           onClick={() => {
             setLiked((liked) => !liked);
@@ -48,9 +48,15 @@ const DetailedInfo = ({ selected }) => {
           }}
         >
           {liked ? (
-            <FaHeartCircleCheck className="text-red-500 text-3xl" />
+            <FaHeartCircleCheck
+              disabled={isLoading}
+              className="text-red-500 text-3xl disabled:text-gray-500"
+            />
           ) : (
-            <FaRegHeart className="text-red-500 text-2xl" />
+            <FaRegHeart
+              disabled={isLoading}
+              className="text-red-500 text-2xl disabled:text-gray-500"
+            />
           )}
         </span>
       </section>
