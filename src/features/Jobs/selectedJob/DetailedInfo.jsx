@@ -11,6 +11,7 @@ import useCreateLike from "../../../hooks/useCreateLike";
 
 import FullPageLoader from "../../../components/ui/FullPageLoader";
 import useLiked from "../../../hooks/useLiked";
+import { useParams } from "react-router-dom";
 
 const DetailedInfo = ({ selected }) => {
   const {

@@ -7,7 +7,7 @@ const Liked = () => {
         <h1 className="text-5xl text-primary">Liked.</h1>
       </header>
 
-      <main className="flex">
+      <main>
         <LikedListing />
       </main>
     </div>

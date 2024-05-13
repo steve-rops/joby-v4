@@ -3,6 +3,7 @@ import QuerySlice from "../features/header/Query/QuerySlice";
 import categorySlice from "../features/header/categories/categorySlice";
 import uiSlice from "../components/ui/uiSlice";
 import settingsSlice from "../features/settings/settingsSlice";
+import userSlice from "../features/auth/userSlice";
 
 const store = configureStore({
   reducer: {

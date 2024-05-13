@@ -24,3 +24,14 @@ export const checkLikedForCurrentUser = async (userId) => {
 
   return data;
 };
+
+export const deleteLike = async (jobId) => {
+  const { error } = await supabase
+    .from("countries")
+    .delete()
+    .eq("jobId", jobId);
+
+  if (error) throw new Error(error.message);
+
+  return error;
+};

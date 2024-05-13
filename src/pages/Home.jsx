@@ -2,13 +2,17 @@ import { SignedIn, SignedOut, useUser } from "@clerk/clerk-react";
 import HamburgerMenu from "../features/hamburger/HamburgerMenu";
 import { Button } from "../components/ui/button";
 import { Link, Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import FullPageLoader from "../components/ui/FullPageLoader";
+import { updateUserId } from "../features/auth/userSlice";
 
 const Home = () => {
   const { country } = useSelector((store) => store.settings);
-  const { isLoaded } = useUser();
+  const { isLoaded, user } = useUser();
+  const dispatch = useDispatch();
   if (!isLoaded) return <FullPageLoader />;
+
+  if (user?.id) dispatch(updateUserId(user.id));
 
   return (
     <div className="h-svh w-full flex flex-col">

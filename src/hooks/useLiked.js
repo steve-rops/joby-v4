@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import { useAuth } from "@clerk/clerk-react";
-
 import { checkLikedForCurrentUser } from "../services/supabaseAPI";
+import { useUser } from "@clerk/clerk-react";
 
 const useLiked = (selectedId = null) => {
   let isLiked = false;
-  const { userId } = useAuth();
+  const { user } = useUser();
   const { data, isFetching: isLoading } = useQuery({
     queryKey: ["checkIfLiked", selectedId],
-    queryFn: () => checkLikedForCurrentUser(userId),
-    staleTime: 0,
+    queryFn: () => checkLikedForCurrentUser(user.id),
+    enabled: !!user?.id,
+    staleTime: 10,
   });
 
   if (!isLoading && selectedId)
