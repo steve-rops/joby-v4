@@ -2,8 +2,14 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import MapInit from "./MapInit";
 import Markers from "./Markers";
 import SetView from "./SetView";
+import { useParams } from "react-router-dom";
+import useJobs from "../../hooks/useJobs";
 
-const Map = ({ selected }) => {
+const Map = () => {
+  const { id } = useParams();
+  const { data: jobs } = useJobs();
+  const selected = jobs?.find((job) => job.id === id) || null;
+
   return (
     <MapContainer
       center={[51.505, -0.09]}

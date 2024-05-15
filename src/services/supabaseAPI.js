@@ -26,10 +26,8 @@ export const checkLikedForCurrentUser = async (userId) => {
 };
 
 export const deleteLike = async (jobId) => {
-  const { error } = await supabase
-    .from("countries")
-    .delete()
-    .eq("jobId", jobId);
+  console.log(jobId);
+  const { error } = await supabase.from("likes").delete().eq("jobId", jobId);
 
   if (error) throw new Error(error.message);
 

@@ -7,6 +7,7 @@ import store from "./stores/store.js";
 import { ClerkProvider } from "@clerk/clerk-react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Toaster } from "./components/ui/toaster.jsx";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 const queryClient = new QueryClient({
@@ -26,6 +27,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
           <App />
+          <Toaster />
         </Provider>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>

@@ -6,14 +6,14 @@ const useLiked = (selectedId = null) => {
   let isLiked = false;
   const { user } = useUser();
   const { data, isFetching: isLoading } = useQuery({
-    queryKey: ["checkIfLiked", selectedId],
+    queryKey: ["liked", selectedId],
     queryFn: () => checkLikedForCurrentUser(user.id),
     enabled: !!user?.id,
     staleTime: 10,
   });
 
   if (!isLoading && selectedId)
-    isLiked = data.some((el) => el.jobId === selectedId);
+    isLiked = data?.some((el) => el.jobId === selectedId);
 
   return { data, isLoading, isLiked };
 };

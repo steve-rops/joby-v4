@@ -11,19 +11,24 @@ import useCreateLike from "../../../hooks/useCreateLike";
 
 import FullPageLoader from "../../../components/ui/FullPageLoader";
 import useLiked from "../../../hooks/useLiked";
+import useDeleteLike from "../../../hooks/useDeleteLike";
 import { useParams } from "react-router-dom";
+import useJobs from "../../../hooks/useJobs";
 
-const DetailedInfo = ({ selected }) => {
-  const {
-    data,
-    isLoading: isChecking,
-    isLiked: isAlreadyLiked,
-  } = useLiked(selected.id);
-
+const DetailedInfo = () => {
   const [liked, setLiked] = useState(false);
-
+  const { id } = useParams();
+  const { data: jobs } = useJobs();
+  const selected = jobs?.find((job) => job.id === id) || null;
   const tags = selected?.category?.tag?.split("-").slice(0, -1);
-  const { mutate: createLike, isLoading } = useCreateLike();
+
+  //CUSTOM HOOKS
+  const { isLoading: isCheckingIfAlreadyLiked, isLiked: isAlreadyLiked } =
+    useLiked(selected?.id);
+  const { mutate: createLike, isLoading: isCreatingLike } = useCreateLike();
+  const { mutate: deleteLiked, isLoading: isDeletingLike } = useDeleteLike();
+  const isLoading = isCreatingLike || isDeletingLike;
+  //
 
   useEffect(
     function () {
@@ -32,7 +37,7 @@ const DetailedInfo = ({ selected }) => {
     [isAlreadyLiked]
   );
 
-  if (isChecking) return <FullPageLoader />;
+  if (isCheckingIfAlreadyLiked) return <FullPageLoader />;
 
   return (
     <main className="h-lvh p-3">
@@ -45,19 +50,22 @@ const DetailedInfo = ({ selected }) => {
           className="cursor-pointer disabled:text-gray-500"
           onClick={() => {
             setLiked((liked) => !liked);
-            createLike(selected);
           }}
         >
           {liked ? (
-            <FaHeartCircleCheck
-              disabled={isLoading}
-              className="text-red-500 text-3xl disabled:text-gray-500"
-            />
+            <div onClick={() => deleteLiked(selected?.id)}>
+              <FaHeartCircleCheck
+                disabled={isLoading}
+                className="text-red-500 text-3xl disabled:text-gray-500"
+              />
+            </div>
           ) : (
-            <FaRegHeart
-              disabled={isLoading}
-              className="text-red-500 text-2xl disabled:text-gray-500"
-            />
+            <div onClick={() => createLike(selected)}>
+              <FaRegHeart
+                disabled={isLoading}
+                className="text-red-500 text-2xl disabled:text-gray-500"
+              />
+            </div>
           )}
         </span>
       </section>
