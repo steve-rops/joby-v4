@@ -1,4 +1,3 @@
-import { SignOutButton, SignedIn } from "@clerk/clerk-react";
 import Form from "./Query/Form";
 import Categories from "./categories/Categories";
 import { Button } from "../../components/ui/button";
