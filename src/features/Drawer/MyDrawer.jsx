@@ -1,8 +1,8 @@
 import { Drawer } from "vaul";
 import Loader from "../../components/ui/Loader";
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
 import useJobs from "../../hooks/useJobs";
+import { Navigate } from "react-router-dom";
 
 const MyDrawer = () => {
   const [snap, setSnap] = useState(0.34);
