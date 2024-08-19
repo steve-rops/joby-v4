@@ -8,7 +8,7 @@ const MyDrawer = () => {
   const [snap, setSnap] = useState(0.34);
   const { data, isLoading } = useJobs();
 
-  // if (snap === 1) return <Navigate to={"/app"} />;
+  if (snap === 1) return <Navigate to={"/app"} />;
 
   return (
     <Drawer.Root
